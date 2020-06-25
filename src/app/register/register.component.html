@@ -1,1 +1,52 @@
-<p>register works!</p>
+<div class="alert-dark container-lg align-content-center" style="padding: 1%; align-content: center; display: inline-block;">
+  <h1>Register</h1>
+  <br/>
+    <form ngNoForm class="form-horizontal align-content-center" [formGroup]="userForm">
+    <div class="form-group">
+      <label for="username">Username</label>
+      <div *ngIf="errorHandler === true" style="color: red">* Field is mandatory!</div>
+      <input type="text" class="form-control" id="username"
+             [formControl]="userForm.controls['username']" required>
+    </div>
+
+    <div class="form-group">
+      <label for="password">Password</label>
+      <div *ngIf="errorHandler === true" style="color: red">* Field is mandatory!</div>
+      <input type="password"  class="form-control" id="password"
+             [formControl]="userForm.controls['password']" required>
+    </div>
+
+    <div class="form-group">
+      <label for="repassword">Repeat password</label>
+      <div *ngIf="errorHandler === true" style="color: red">* Field is mandatory!</div>
+      <input type="password"  class="form-control" id="repassword"
+              [formControl]="userForm.controls['repeatPassword']" required>
+    </div>
+
+    <br/>
+    <br/>
+
+    <div class="form-group">
+      <label for="firstname">Firstname</label>
+      <div *ngIf="errorHandler === true" style="color: red">* Field is mandatory!</div>
+      <input type="text" class="form-control" id="firstname"
+             [formControl]="userForm.controls['firstname']"  required>
+    </div>
+
+    <div class="form-group">
+      <label for="lastname">Lastname</label>
+      <div *ngIf="errorHandler === true" style="color: red">* Field is mandatory!</div>
+      <input type="text" class="form-control" id="lastname"
+             [formControl]="userForm.controls['lastname']" required>
+    </div>
+
+    <br/>
+    <div style="width: 30%; color: red" class="container">
+      {{this.errorMessage}}
+    </div>
+
+      <button type="button" class="btn btn-warning" (click)="onSubmit()"><b>Register</b></button>
+      &nbsp;
+      <button type="button" class="btn btn-dark" routerLink="/"><b>Back</b></button>
+  </form>
+</div>

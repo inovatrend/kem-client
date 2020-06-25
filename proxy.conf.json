@@ -1,6 +1,8 @@
 {
-  "/api":{
-    "target": "http://localhost:1122",
-    "secure": false
+  "/kep/*": {
+    "target": "http://localhost:9090",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true
   }
 }

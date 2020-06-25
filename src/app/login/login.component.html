@@ -1,1 +1,46 @@
-<p>login works!</p>
+<div style="width: 100%; color: red" class="alert-danger" *ngIf="this.authService.error !== null">
+  Error message is:
+  <br/>
+  {{this.authService.error }}
+</div>
+
+<br/>
+<div class="alert-dark container-lg" style="padding: 5%; align-content: center; ">
+  <h1>Login</h1>
+  <br/>
+  <div class="container" style="width: 100%; display: contents; align-content: center;">
+    <form class="form-horizontal" [formGroup]="loginForm">
+
+      <div class="form-group">
+        <label for="inputName" class="col-sm-5 control-label">
+          Username:
+        </label>
+        <div class="col-sm-7">
+          <input placeholder="Username" type="text" class="form-control" id="inputName"
+                 [formControl]="loginForm.controls['username']"/>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="inputPassword" class="col-sm-5 control-label">
+          Password:
+        </label>
+        <div class="col-sm-7">
+          <input placeholder="Password" type="password" class="form-control" id="inputPassword"
+                 [formControl]="loginForm.controls['password']"/>
+        </div>
+      </div>
+
+      <div style="width: 30%; color: red" class="alert-danger">
+        {{errorHandler}}
+      </div>
+      <br/>
+      <div style="margin-bottom: 100px">
+        <button type="button" class="btn btn-warning" (click)="onSubmit()"><b>Login</b></button>
+      </div>
+    </form>
+  </div>
+
+
+
+</div>
