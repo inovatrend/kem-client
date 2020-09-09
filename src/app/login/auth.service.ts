@@ -44,13 +44,6 @@ export class AuthService {
     return this.http.get<UserModel[]> ( this.baseUrl + '/user/getAllUsers');
   }
 
-  public getUserById(userId: number): Observable<UserModel> {
-    const params = new HttpParams()
-      .set('userId', userId.toString());
-
-    return this.http.get<UserModel>( this.baseUrl + '/user/get/', {params: params});
-  }
-
   public getUserByUsername(username: string): Observable<UserModel> {
     const params = new HttpParams()
       .set('username', username);
@@ -59,8 +52,11 @@ export class AuthService {
   }
 
   public logout () {
+    this.http.delete<UserModel>( this.baseUrl + '/user/logout')
+      .subscribe(resp => {
+        this.loggedInUserSubject.next(resp);
+      });
     sessionStorage.clear();
-    this.loggedInUserSubject.next(null);
     this.router.navigate(["/"]);
   }
 }

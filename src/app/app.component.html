@@ -5,7 +5,7 @@
 
     <ul class="nav nav-pills">
 
-      <li class="nav-item">
+      <li class="nav-item" *ngIf="this.loggedInUser !== null">
         <a class="nav-link" routerLinkActive="active" routerLink="/messenger">Messenger</a>
       </li>
     </ul>

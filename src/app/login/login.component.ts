@@ -37,16 +37,12 @@ export class LoginComponent implements OnInit {
       this.authService.login(loginModel);
       this.authService.loggedInUser.subscribe(respo => {
         if (this.loginForm.get('username').value != null && this.loginForm.get('password').value != null
-            && this.authService.error == null) {
+          && this.authService.error == null) {
           sessionStorage.setItem('username', this.loginForm.get('username').value);
-          sessionStorage.setItem('password', this.loginForm.get('password').value);
-
         } else {
           this.errorHandler = 'Username or password invalid!';
         }
       });
     }
-    // this.loginService.getToken(this.loginForm.get('token').value);
   }
-
 }
