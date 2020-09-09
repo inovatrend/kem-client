@@ -28,15 +28,14 @@ export class AuthService {
     return this.http.post<any>(this.baseUrl + '/auth/login', loginModel, requestOptions)
       .subscribe(
         result => {
-          console.log(result);
           this.router.navigate(['/messenger']);
-          sessionStorage.setItem('token', result);
+          localStorage.setItem('token', result);
           this.error = null;
           return this.loggedInUserSubject.next(result);
         },
         error => {
           this.error = error.error;
-          sessionStorage.clear();
+          localStorage.clear();
         });
   }
 
@@ -55,8 +54,9 @@ export class AuthService {
     this.http.delete<UserModel>( this.baseUrl + '/user/logout')
       .subscribe(resp => {
         this.loggedInUserSubject.next(resp);
+        localStorage.clear();
+        this.router.navigate(['/']);
       });
-    sessionStorage.clear();
-    this.router.navigate(["/"]);
+
   }
 }

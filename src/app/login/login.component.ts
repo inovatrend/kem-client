@@ -24,6 +24,7 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
+    localStorage.clear();
   }
 
   public onSubmit(): void {
@@ -36,9 +37,8 @@ export class LoginComponent implements OnInit {
 
       this.authService.login(loginModel);
       this.authService.loggedInUser.subscribe(respo => {
-        if (this.loginForm.get('username').value != null && this.loginForm.get('password').value != null
-          && this.authService.error == null) {
-          sessionStorage.setItem('username', this.loginForm.get('username').value);
+        if (this.loginForm.get('username').value != null && this.authService.error == null) {
+          localStorage.setItem('username', this.loginForm.get('username').value);
         } else {
           this.errorHandler = 'Username or password invalid!';
         }

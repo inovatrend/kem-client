@@ -17,8 +17,8 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.authService.loggedInUser
       .subscribe(resp => {
-          if (sessionStorage.length > 0) {
-            this.loggedInUser = new LoginModel(sessionStorage.getItem('username'), sessionStorage.getItem('password'));
+          if (localStorage.length > 0) {
+            this.loggedInUser = new LoginModel(localStorage.getItem('username'), null);
           } else {
             this.loggedInUser = null;
           }
@@ -27,5 +27,11 @@ export class AppComponent implements OnInit {
           console.log('ERROR RESPO:');
           console.log(error);
         });
+  }
+
+
+  public logout() {
+    this.authService.logout();
+    localStorage.clear();
   }
 }

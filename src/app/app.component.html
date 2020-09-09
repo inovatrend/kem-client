@@ -14,7 +14,7 @@
          <a class="nav-link" disabled>{{this.loggedInUser.username}} &nbsp; </a>
       </li>
       <li class="nav-item" *ngIf="this.loggedInUser !== null">
-      <button class="btn-link btn" routerLinkActive="active" (click)="this.authService.logout()">Logout</button>
+      <button class="btn-link btn" routerLinkActive="active" (click)="logout()">Logout</button>
       </li>
       <li class="nav-item">
         <a class="nav-link" *ngIf="this.loggedInUser === null" routerLinkActive="active" routerLink="/register">Register</a>

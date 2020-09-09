@@ -42,7 +42,7 @@ export class MessengerComponent implements OnInit {
           console.log(error);
         });
 
-    this.authService.getUserByUsername(sessionStorage.getItem('username'))
+    this.authService.getUserByUsername(localStorage.getItem('username'))
       .subscribe(user => {
         this.loggedInUser = user;
       });
@@ -72,7 +72,7 @@ export class MessengerComponent implements OnInit {
 
   onSubmit(event) {
     if (event.key === 'Enter' || event.type === 'click' && this.messageForm.get('messageForSend').value !== null) {
-      this.authService.getUserByUsername(sessionStorage.getItem('username'))
+      this.authService.getUserByUsername(localStorage.getItem('username'))
         .subscribe(user => {
 
           const kafkaMessage = new KafkaMessageModel(
