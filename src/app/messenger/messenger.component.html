@@ -1,1 +1,36 @@
-<p>messenger works!</p>
+<form style="width: 100%" [formGroup]="messageForm">
+
+  <label>Choose user you want to send message to:</label>
+  <div *ngIf="errorHandler === true" style="color: red">* Field is mandatory!</div>
+  <div class="col-sm-6">
+    <select [formControl]="messageForm.controls['selectUser']" class="form-control" (change)="onChange()">
+      <option *ngFor="let user of userSelectList" [value]="user.userId"
+              [hidden]="loggedInUser.username === user.username">  {{user.userId}} - {{user.username}}</option>
+    </select>
+  </div>
+  <br>
+  <label>Message:</label>
+  <div class="row">
+    <div class="col-sm-10">
+      <input disabled style=" height: 50px; width: 100%" placeholder="Write your message here..." autocomplete="off"
+             type="text" class="form-control"
+             id="inputName"
+             [formControl]="messageForm.controls['messageForSend']"/>
+    </div>
+
+    <div class="col-xs-1 float-right">
+      <button style=" height: 50px" class="btn btn-info btn" (keydown)="onSubmit($event)" (click)="onSubmit($event)">Send</button>
+    </div>
+  </div>
+</form>
+
+<br>
+<hr>
+<br>
+<div *ngFor="let msg of messages">
+  <h4><b style="color: red"
+         [ngStyle]="{'color': msg.receiverUserId !== loggedInUser.userId ? 'green' : 'red' }">
+    <small>{{msg.id | date:'dd-MM / hh:mm:ss a'}} </small> - {{msg.senderUsername}}
+    : </b><i>{{msg.message}}</i></h4>
+</div>
+

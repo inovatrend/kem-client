@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {RegisterService} from './register.service';
 import {Router} from '@angular/router';
-import {UserModel} from './Shared/UserModel';
+import {UserModel} from './model/UserModel';
 
 @Component({
   selector: 'app-register',
@@ -52,7 +52,8 @@ export class RegisterComponent implements OnInit {
       this.errorMessage = 'Passwords do not match!';
     }
     else if (!(this.userForm.get('password').value) &&
-      !(this.userForm.get('repeatPassword').value) && !(this.userForm.get('username').value)) {
+      !(this.userForm.get('repeatPassword').value) &&
+      !(this.userForm.get('username').value)) {
       this.errorHandler = true;
       this.errorMessage = 'There is some errors!';
     }

@@ -8,6 +8,8 @@ import {RegisterComponent} from './register/register.component';
 import {MessengerComponent} from './messenger/messenger.component';
 import {HttpClientModule} from '@angular/common/http';
 import {ReactiveFormsModule} from '@angular/forms';
+import {NgSelectModule} from '@ng-select/ng-select';
+import {CommonModule} from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -18,11 +20,13 @@ import {ReactiveFormsModule} from '@angular/forms';
   ],
   imports: [
     BrowserModule,
+    CommonModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [
+    NgSelectModule
   ],
   bootstrap: [AppComponent]
 })
