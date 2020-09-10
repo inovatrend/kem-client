@@ -53,13 +53,19 @@ export class MessengerComponent implements OnInit {
     this.selectedUser = this.messageForm.get('selectUser').value;
     this.selectedUserCheck();
 
-    interval(3000)
+    let subscriptionInterval = interval(3000)
       .subscribe(respo => {
+        if (localStorage.length <= 0) {
+          subscriptionInterval.unsubscribe();
+        }
+
         this.messengerService.loadMessage(this.loggedInUser.userId, this.messageForm.get('selectUser').value)
           .subscribe(messages => {
             this.messages = messages;
           });
       });
+
+
   }
 
   private selectedUserCheck() {
