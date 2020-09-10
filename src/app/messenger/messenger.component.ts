@@ -92,6 +92,7 @@ export class MessengerComponent implements OnInit {
             this.messageForm.get('messageForSend').reset();
           });
         });
+
     }
   }
 
