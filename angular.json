@@ -120,6 +120,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "KEPClient"
+    }
+  },
+  "defaultProject": "KEPClient",
+  "cli": {
+    "analytics": "b1bfe846-4ed8-49a8-9077-4659997d14f6"
+  }
 }

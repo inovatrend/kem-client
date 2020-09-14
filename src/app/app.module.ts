@@ -1,5 +1,5 @@
 import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
+import {CUSTOM_ELEMENTS_SCHEMA, NgModule} from '@angular/core';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
@@ -11,6 +11,9 @@ import {ReactiveFormsModule} from '@angular/forms';
 import {NgSelectModule} from '@ng-select/ng-select';
 import {CommonModule} from '@angular/common';
 import {AuthInterceptor} from './login/auth.interceptor';
+import {NgxSpinnerModule} from 'ngx-spinner';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {SelectModule} from 'ng-select';
 
 @NgModule({
   declarations: [
@@ -20,12 +23,17 @@ import {AuthInterceptor} from './login/auth.interceptor';
     MessengerComponent
   ],
   imports: [
+    BrowserAnimationsModule,
     BrowserModule,
     CommonModule,
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
+    NgxSpinnerModule,
+    SelectModule
+
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     NgSelectModule
