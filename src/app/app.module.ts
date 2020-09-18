@@ -14,13 +14,15 @@ import {AuthInterceptor} from './login/auth.interceptor';
 import {NgxSpinnerModule} from 'ngx-spinner';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {SelectModule} from 'ng-select';
+import {MonitoringComponent} from './monitoring/monitoring.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    MessengerComponent
+    MessengerComponent,
+    MonitoringComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -30,8 +32,7 @@ import {SelectModule} from 'ng-select';
     HttpClientModule,
     ReactiveFormsModule,
     NgxSpinnerModule,
-    SelectModule
-
+    SelectModule,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [
