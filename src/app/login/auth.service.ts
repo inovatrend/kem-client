@@ -28,7 +28,12 @@ export class AuthService {
     return this.http.post<any>(this.baseUrl + '/auth/login', loginModel, requestOptions)
       .subscribe(
         result => {
-          this.router.navigate(['/messenger']);
+          if (loginModel.username !== 'admin') {
+            this.router.navigate(['/messenger']);
+          } else {
+            this.router.navigate(['/monitoring']);
+          }
+
           localStorage.setItem('token', result);
           this.error = null;
           return this.loggedInUserSubject.next(result);

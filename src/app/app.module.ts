@@ -13,8 +13,8 @@ import {CommonModule} from '@angular/common';
 import {AuthInterceptor} from './login/auth.interceptor';
 import {NgxSpinnerModule} from 'ngx-spinner';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {SelectModule} from 'ng-select';
 import {MonitoringComponent} from './monitoring/monitoring.component';
+import {ChartsModule} from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -32,7 +32,7 @@ import {MonitoringComponent} from './monitoring/monitoring.component';
     HttpClientModule,
     ReactiveFormsModule,
     NgxSpinnerModule,
-    SelectModule,
+    ChartsModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [

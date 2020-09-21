@@ -1,21 +1,19 @@
-<div *ngFor="let metric of metrics">
+    <div class="chart-container" style="justify-content: center; height: 100%; width: 100%;">
+      <canvas baseChart
+              [datasets]="barChartData"
+              [labels]="barChartLabels"
+              [options]="barChartOptions"
+              [plugins]="barChartPlugins"
+              [legend]="barChartLegend"
+              [chartType]="barChartType">
+      </canvas>
+    </div>
+    <br>
+    <br>
+    <button class="btn btn-outline-primary" (click)="loadData()">Check lag</button>
+<ngx-spinner
+  bdColor="rgba(51,51,51,0)"
+  size="large"
+  color="#17a2b8"
+  type="ball-scale-multiple"><b style="color: red">{{this.alertMessage}}</b></ngx-spinner>
 
-  {{metric.lag}}
-  {{metric.topicName}}
-</div>
-
-
-<!--<ngx-charts-bar-vertical-->
-<!--  [view]="view"-->
-<!--  [scheme]="colorScheme"-->
-<!--  [results]="single"-->
-<!--  [gradient]="gradient"-->
-<!--  [xAxis]="showXAxis"-->
-<!--  [yAxis]="showYAxis"-->
-<!--  [legend]="showLegend"-->
-<!--  [showXAxisLabel]="showXAxisLabel"-->
-<!--  [showYAxisLabel]="showYAxisLabel"-->
-<!--  [xAxisLabel]="xAxisLabel"-->
-<!--  [yAxisLabel]="yAxisLabel"-->
-<!--  (select)="onSelect($event)">-->
-<!--</ngx-charts-bar-vertical>-->

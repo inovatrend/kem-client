@@ -1,5 +1,6 @@
 export class KafkaLagMonitoring {
-  constructor(public lag: string,
+  constructor(public id: number,
+              public lag: number,
               public topicName: string
   ) {
   }
