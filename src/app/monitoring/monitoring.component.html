@@ -1,16 +1,17 @@
-    <div class="chart-container" style="justify-content: center; height: 100%; width: 100%;">
-      <canvas baseChart
-              [datasets]="barChartData"
-              [labels]="barChartLabels"
-              [options]="barChartOptions"
-              [plugins]="barChartPlugins"
-              [legend]="barChartLegend"
-              [chartType]="barChartType">
-      </canvas>
-    </div>
-    <br>
-    <br>
-    <button class="btn btn-outline-primary" (click)="loadData()">Check lag</button>
+<div class="container-lg">
+  <canvas style="align-content: center; background-color: aliceblue;
+ border-style: solid; border-color: lightgray; border-radius: 10px;"
+          baseChart
+          [datasets]="barChartData"
+          [labels]="barChartLabels"
+          [options]="barChartOptions"
+          [plugins]="barChartPlugins"
+          [legend]="barChartLegend"
+          [chartType]="barChartType">
+  </canvas>
+  <br>
+  <button class="btn btn-info" (click)="loadData()">Check lag</button>
+</div>
 <ngx-spinner
   bdColor="rgba(51,51,51,0)"
   size="large"

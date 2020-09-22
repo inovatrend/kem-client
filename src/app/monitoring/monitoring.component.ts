@@ -15,11 +15,37 @@ export class MonitoringComponent implements OnInit {
 
   public barChartOptions: ChartOptions = {
     responsive: true,
-    scales: {xAxes: [{}], yAxes: [{}]},
+    aspectRatio: 1.4,
+    animation: {
+      duration: 0
+    },
+    scales: {
+      xAxes: [
+        {
+          display: false
+        }
+      ],
+      yAxes: [
+        {
+          display: true
+        }
+      ]
+    },
     plugins: {
       datalabels: {
         anchor: 'end',
         align: 'end',
+        display: false
+      },
+      zoom: {
+        pan: {
+          enabled: true,
+          mode: 'y'
+        },
+        zoom: {
+          enabled: true,
+          mode: 'y'
+        }
       }
     }
   };

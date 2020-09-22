@@ -15,6 +15,8 @@ import {NgxSpinnerModule} from 'ngx-spinner';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MonitoringComponent} from './monitoring/monitoring.component';
 import {ChartsModule} from 'ng2-charts';
+import 'hammerjs';
+import 'chartjs-plugin-zoom';
 
 @NgModule({
   declarations: [
