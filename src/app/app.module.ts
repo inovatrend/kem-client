@@ -17,6 +17,7 @@ import {MonitoringComponent} from './monitoring/monitoring.component';
 import {ChartsModule} from 'ng2-charts';
 import 'hammerjs';
 import 'chartjs-plugin-zoom';
+import {JwtHelperService} from '@auth0/angular-jwt';
 
 @NgModule({
   declarations: [
@@ -34,12 +35,13 @@ import 'chartjs-plugin-zoom';
     HttpClientModule,
     ReactiveFormsModule,
     NgxSpinnerModule,
-    ChartsModule
+    ChartsModule,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
-    NgSelectModule
+    NgSelectModule,
+    JwtHelperService
   ],
   bootstrap: [AppComponent]
 })

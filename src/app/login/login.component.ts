@@ -3,6 +3,7 @@ import {FormBuilder, FormGroup} from '@angular/forms';
 import {AuthService} from './auth.service';
 import {LoginModel} from './model/LoginModel';
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -12,9 +13,6 @@ export class LoginComponent implements OnInit {
 
   public errorHandler: string;
   public loginForm: FormGroup;
-  public loggedInUser: LoginModel = null;
-
-
   constructor(private formBuilder: FormBuilder,
               public authService: AuthService) {
     this.loginForm = formBuilder.group({
@@ -27,8 +25,9 @@ export class LoginComponent implements OnInit {
     localStorage.clear();
   }
 
-  public onSubmit(): void {
-    if (this.loginForm.valid) {
+  public onSubmit(event): void {
+    if (this.loginForm.valid
+      && event.key === 'Enter' || event.type === 'click') {
 
       const loginModel = new LoginModel(
         this.loginForm.get('username').value,

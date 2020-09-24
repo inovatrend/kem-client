@@ -18,7 +18,8 @@ export class AuthService {
   public error: string = null;
 
   constructor(private http: HttpClient,
-              private router: Router) {}
+              private router: Router) {
+  }
 
   login(loginModel: LoginModel) {
     const requestOptions: Object = {
@@ -45,7 +46,7 @@ export class AuthService {
   }
 
   public getAllUsers(): Observable<UserModel[]> {
-    return this.http.get<UserModel[]> ( this.baseUrl + '/user/getAllUsers');
+    return this.http.get<UserModel[]>(this.baseUrl + '/user/getAllUsers');
   }
 
   public getUserByUsername(username: string): Observable<UserModel> {
@@ -55,13 +56,12 @@ export class AuthService {
     return this.http.get<UserModel>(this.baseUrl + '/user/getByUsername', {params: params});
   }
 
-  public logout () {
-    this.http.delete<UserModel>( this.baseUrl + '/user/logout')
+  public logout() {
+    this.http.delete<UserModel>(this.baseUrl + '/auth/logout')
       .subscribe(resp => {
         this.loggedInUserSubject.next(resp);
         localStorage.clear();
         this.router.navigate(['/']);
       });
-
   }
 }

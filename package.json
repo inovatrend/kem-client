@@ -21,6 +21,7 @@
     "@angular/platform-browser": "~9.0.1",
     "@angular/platform-browser-dynamic": "~9.0.1",
     "@angular/router": "~9.0.1",
+    "@auth0/angular-jwt": "^5.0.1",
     "@ng-select/ng-select": "^4.0.4",
     "bootstrap": "^4.4.1",
     "chart.js": "^2.9.3",
